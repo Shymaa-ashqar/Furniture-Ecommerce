@@ -4,7 +4,7 @@ function Checkout(props) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [code, setCode] = useState("");
   const [discount, setDiscount] = useState("");
-  const [counter, setCounter] = useState(0);
+  const [data, setData] = useState(props.data);
   let sum = 0;
   const handleDiscountInput = (e) => {
     setCode(e.target.value);
@@ -16,10 +16,33 @@ function Checkout(props) {
       console.log(totalPrice - discount);
     }
   };
+  const handleDecrement = (id_) => {
+    //new array with the quantity decreased then the real data is updated with the new array
+    const newADataArray = data.map((element) => {
+      if (element.id == id_ && element.quantity >= 1) {
+        element.quantity = element.quantity - 1;
+        return element;
+      } else {
+        return element;
+      }
+    });
+    setData(newADataArray);
+  };
+  const handleIncrement = (id_) => {
+    const newADataArray = data.map((element) => {
+      if (element.id == id_) {
+        element.quantity = element.quantity + 1;
+        return element;
+      } else {
+        return element;
+      }
+    });
+    setData(newADataArray);
+  };
   useEffect(() => {
     return props.data.map((item) => {
       if (props.cartItems.includes(item.id)) {
-        sum += item.price;
+        sum += item.price * item.quantity;
         setTotalPrice(sum);
       }
     });
@@ -28,12 +51,29 @@ function Checkout(props) {
     <div>
       <div className="checkout-container">
         <p>SHOPPING CART</p>
-        {props.data.map((item) => {
+        {data.map((item) => {
           return props.cartItems.includes(item.id) ? (
             <div className="cart-items" key={item.id}>
               <img src={item.src} />
               <h5>{item.name}</h5>
-              <div className="price"> $ {item.price}</div>
+              <div className="quantity">
+                <button
+                  onClick={() => {
+                    handleDecrement(item.id);
+                  }}
+                >
+                  -
+                </button>
+                <span>{item.quantity}</span>
+                <button
+                  onClick={() => {
+                    handleIncrement(item.id);
+                  }}
+                >
+                  +
+                </button>
+              </div>
+              <div className="price"> $ {item.price * item.quantity}</div>
             </div>
           ) : (
             ""

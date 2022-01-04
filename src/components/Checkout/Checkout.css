@@ -15,6 +15,9 @@
   font-family: "Montserrat", sans-serif;
   text-align: center;
 }
+.checkout-container .quantity span {
+  padding: 0 0.8em;
+}
 .cart-items {
   display: flex;
   padding: 1em;
