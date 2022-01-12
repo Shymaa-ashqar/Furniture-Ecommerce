@@ -19,6 +19,8 @@ footer .copyright {
   grid-area: footer;
   font-weight: bold;
   font-size: 1.3em;
+  /* grid-area: 2 / 1 / span 1 / span 3; */
+  /* row/column */
 }
 @media screen and (max-width: 573px) {
   footer {
