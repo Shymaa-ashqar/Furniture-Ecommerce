@@ -93,11 +93,17 @@ function Checkout(props) {
         <div className="priceAmount">Total Price : {totalPrice} $</div>
         <div className="new">
           {discount ? (
-            <p className="newTotal">Total : {totalPrice - discount}$</p>
+            <p className="newTotal">
+              Total : {Math.round(totalPrice - discount)}$
+            </p>
           ) : (
             ""
           )}
-          {discount ? <p className="discount"> -{discount} $</p> : ""}
+          {discount ? (
+            <p className="discount"> -{Math.round(discount)} $</p>
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

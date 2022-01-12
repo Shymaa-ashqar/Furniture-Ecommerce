@@ -8,7 +8,7 @@ function ItemCard(props) {
     }
   };
   return (
-    <div className="ItemCard-container">
+    <div className="ItemCard-container" data-aos="fade-down">
       <div className="card">
         <img src={props.data.src} />
         <div className="text">
