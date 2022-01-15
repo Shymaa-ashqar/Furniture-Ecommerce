@@ -87,7 +87,7 @@
 .ItemCard-container .text button i {
   padding-left: 0.3em;
 }
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 416px) {
   .shop-container .search-sort .sort {
     display: flex !important;
     flex-direction: column !important;
@@ -102,7 +102,7 @@
     display: none !important;
   }
 }
-@media screen and (max-width: 920px) and (min-width: 377px) {
+@media screen and (max-width: 920px) and (min-width: 415px) {
   .cards-container {
     grid-template-columns: auto auto !important;
   }

@@ -17,7 +17,6 @@ function Checkout(props) {
     }
   };
   const handleDecrement = (id_) => {
-    //new array with the quantity decreased then the real data is updated with the new array
     const newADataArray = data.map((element) => {
       if (element.id == id_ && element.quantity >= 1) {
         element.quantity = element.quantity - 1;
